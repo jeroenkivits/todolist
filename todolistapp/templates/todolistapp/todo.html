@@ -1,0 +1,80 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <title>Your to do list</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "css/todo.css" %}"/>  <!-- My own CSS file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- Jquery libraby -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap Javascript libraby -->
+
+    <script>
+      function startTime() {
+          var today = new Date();
+          var day = today.getDate();
+          var month = today.getMonth()+1; //January is 0!
+          var year = today.getFullYear();
+
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          h = checkTime(h);
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('date').innerHTML = day + '/' + month + '/' + year + ",       ";
+          document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+          var t = setTimeout(startTime, 500);
+      }
+      function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+      }
+    </script>
+
+  </head>
+  <body class="body" onload="startTime()">
+
+    <div class="content">
+      <div class="menu">
+        <div class="nav-menu">
+          <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container containerMenu">
+              <a href="{% url 'todo_page' %}" target="_parent"><button type="button" class="btn btn-default navbar-btn navbar-btn1">To do list</button></a>
+              <a href="{% url 'weather' %}" target="_parent"><button type="button" class="btn btn-default navbar-btn navbar-btn2">Weather</button></a>
+              <a href="{% url 'about' %}" target="_parent"><button type="button" class="btn btn-default navbar-btn navbar-btn3">About</button></a>
+            </div>
+            <div class="welcomeName">Welcome: admin</div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="container status" id="status">
+        <div class="status-date" id="date">
+        </div>
+        <div class="status-time" id="time">
+        </div>
+        <div class="status-stats" id="stats">
+
+        </div>
+      </div>
+
+      <div class="todolist">
+        <div id="myDIV" class="inputDiv">
+          <h2>Your list</h2>
+          <input type="text" id="myInput" placeholder="Enter task...">
+          <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+        <ul id="myUL">
+        </ul>
+
+        <script src="{% static 'js/todo.js' %}"></script>
+
+      </div>
+  </div>
+  </body>
+</html>

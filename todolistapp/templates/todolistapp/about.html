@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <title>About this site</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">  <!-- My own CSS file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- Jquery libraby -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap Javascript libraby -->
+
+  </head>
+  <body class="body">
+
+    <div class="content">
+
+      <div class="nav-menu">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'todo_page' %}">To do list</a></li>
+                <li><a href="{% url 'weather' %}">Weather</a></li>
+                <li class="active"><a href="{% url 'about' %}">About</a></li>
+              </ul>
+              <div class="navbar-header navbar-right">
+                <p class="navbar-text"> Welcome: admin </p>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="info">
+      </br>
+        <h1><b>About this site:</b></h1>
+        This site is made for the 2id60 Web technology course of the TU Eindhoven.</br>
+        On this site I provided a "to-do-list" generator application, which can be </br>
+        used for making to do lists. </br></br>
+        The to do list itself has several functionalities: </br>
+        <ul>
+          <li>You can add a "to-do" to the list by typing tekst in the white field saying </br>
+            "Enter task." and pressing the light blue "ADD"-button.  </li>
+          <li>When a task is done you can click on it and it will become striked-trough </br>
+            and light-blue coloured, and a check-mark will appear before the task. </br>
+            When you click again on that task the checkmark & strikethrough will disappear. </li>
+          <li>You can also delete an added task by pressing the small cross on the right-</br>
+            end of the task. </li>
+        </ul>
+        </br>
+        When planning a task/activity it is nice to know the weather, and therefore there </br>
+        is a button called "Weather" which shows the weatherforecast for the coming days.</br>
+        The weather forecast is provided by <i><u>meteoblue</u></i>. </br>
+        One can also see the current date and time in the gray container.
+      </div>
+
+    </div>
+  </body>
+</html>

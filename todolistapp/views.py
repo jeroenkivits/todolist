@@ -38,3 +38,15 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'todolistapp/post_edit.html', {'form': form})
+
+def todo_page(request):
+    return render(request, 'todolistapp/todo.html')
+
+def weather(request):
+    return render(request, 'todolistapp/weather.html')
+
+def index(request):
+    return render(request, 'todolistapp/index.html')
+
+def about(request):
+    return render(request, 'todolistapp/about.html')
