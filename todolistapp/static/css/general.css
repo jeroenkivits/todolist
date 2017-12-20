@@ -1,3 +1,5 @@
+/*THIS IS THE GENERAL CSS FOR THE COMMON FILES, BELOW I INCLUDED CSS FOR SPECIFIC FILES */
+
 body{
   background-color: #054E93;
   background-size: 100%, 100%;
@@ -77,17 +79,77 @@ body{
   width: 100%;
 }
 
+/* Todo.CSS*/
+
+.status{
+  position: relative;
+  margin-top: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: #A0A0A0;
+  color: #FFF;
+  font-family: sans-serif;
+  font-size: 25px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.status-date{
+  position: relative;
+  float: left;
+  margin-left: 0px;
+  width: 60px;
+  margin-right: 10px;
+}
+.status-time{
+  position: relative;
+  float: left;
+  margin-left: 75px;
+}
+.status-stats{
+  postion: relative;
+  float: right;
+  margin-right: 20px;
+}
+
+/* WEATHER.CSS */
 .text{
-  position: absolute;
-  top: 75px;
+  margin-top: 70px;
+  margin-left: 40px;
   color: white;
   font-family: sans-serif;
   font-size: 18px;
-  margin-left: 40px;
 }
 
 .weather{
   margin-left: 25px;
   margin-right: 25px;
-  margin-top: 100px;
+  margin-top: 10px;
+}
+
+/*ABOUT.CSS */
+.navbar-text{
+  font-size: 20px;
+  line-height: 20px;
+  color: black;
+  vertical-align: middle;
+  font-weight: bold;
+  padding: 0px;
+}
+
+.content{
+  position: relative;
+  min-height: 100%;
+  margin-top: 0px;
+}
+
+.info{
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 30px;
+  color: white;
 }

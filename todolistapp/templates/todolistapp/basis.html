@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <title>Your list!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">  <!-- My own CSS file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- Jquery libraby -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap Javascript libraby -->
+
+    {% block head %}
+    {% endblock %}
+
+  </head>
+  <body class="body">
+
+    <div class="content">
+
+      <div class="nav-menu">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'todo_page' %}">To do list</a></li>
+                <li><a href="{% url 'weather' %}">Weather</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+              </ul>
+              <div class="navbar-header navbar-right">
+                <p class="navbar-text">Welcome: {{ request.user.username }}</p>
+              </div>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      {% block content %}
+      {% endblock %}
+
+    </div>
+  </body>
+</html>
