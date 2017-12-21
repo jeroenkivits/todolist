@@ -1,14 +1,12 @@
 {% load staticfiles %}
 <html lang="en">
   <head>
-    <title>Login to your list</title>
-    <!-- Required meta tags -->
+    <title>Welcome to your list</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}"> <!-- My own CSS file -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- Jquery libraby -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap Javascript libraby -->
   </head>
@@ -18,21 +16,19 @@
       <div class="row">
           <div class="col-md-offset-5 col-md-3">
               <div class="form-login">
-              <h4>Welcome to your personal to-do list.</h4>
-              <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
-              </br>
-              <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-              </br>
+              <h4>Welcome to your list</h4>
+              <h7><center>Please sign up, or login to work with your todolists</center></h7>
               <div class="wrapper">
               <span class="group-btn" id="loginButton">
-                <a href="{% url 'todo_page' %}" class="btn btn-primary btn-md">Login <i class="fa fa-sign-in"></i></a>
+                </br>
+                <a href="{% url 'signup' %}" class="btn btn-primary btn-md">Sign up <i class="fa fa-sign-in"></i></a>
+                &emsp;
+                <a href="{% url 'login' %}" class="btn btn-primary btn-md">Login <i class="fa fa-sign-in"></i></a>
               </span>
-            </div>
-            </form>
+              </div>
             </div>
           </div>
       </div>
     </div>
-
   </body>
 </html>

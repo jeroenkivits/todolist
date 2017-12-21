@@ -30,13 +30,13 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'todolistapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todolistapp'
 ]
 
 MIDDLEWARE = [
@@ -103,6 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'todo_page'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

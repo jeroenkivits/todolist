@@ -2,21 +2,30 @@
 
 <html lang="en">
   <head>
-    <title>Sign up!</title>
+    <title>Login</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static "css/signup.css" %}"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- Jquery libraby -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap Javascript libraby -->
   </head>
   <body class="body">
-      <h2>Sign up for your list</h2>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">Sign up</button>
-      </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+
+              <h4>Login to your list</h4>
+              <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
