@@ -66,7 +66,7 @@ def signup(request):
     return render(request, 'todolistapp/signup.html', {'form': form})
 
 def login(request):
-    return render(request, 'todolistapp/todo.html')
+    return render(request, 'todolistapp/todo_page.html')
 
 def logout(request):
     logout(request)
