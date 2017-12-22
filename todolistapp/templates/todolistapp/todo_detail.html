@@ -1,6 +1,8 @@
-{% extends 'todolistapp/base.html' %}
+{% extends 'todolistapp/todo_base.html' %}
 
 {% block content %}
+    </br>
+    </br>
     <div class="post">
         {% if post.published_date %}
             <div class="date">
@@ -11,7 +13,7 @@
           <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
 
-        <h1>{{ post.title }}</h1>
+        <h4>{{ post.title }}</h4>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}

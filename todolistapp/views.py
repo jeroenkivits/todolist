@@ -7,15 +7,15 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import View
 
-def post_list(request):
+def todo_page(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'todolistapp/post_list.html', {'posts': posts})
+    return render(request, 'todolistapp/todo_page.html', {'posts': posts})
 
-def post_detail(request, pk):
+def todo_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'todolistapp/post_detail.html', {'post': post})
+    return render(request, 'todolistapp/todo_detail.html', {'post': post})
 
-def post_new(request):
+def todo_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -23,27 +23,24 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('todo_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'todolistapp/post_edit.html', {'form': form})
+    return render(request, 'todolistapp/todo_edit.html', {'form': form})
 
-def post_edit(request, pk):
+def todo_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.userpost = get_object_or_404(Post, pk=pk)
+            post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('todo_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'todolistapp/post_edit.html', {'form': form})
-
-def todo_page(request):
-    return render(request, 'todolistapp/todo.html')
+    return render(request, 'todolistapp/todo_edit.html', {'form': form})
 
 def weather(request):
     return render(request, 'todolistapp/weather.html')

@@ -1,14 +1,13 @@
-{% load static %}
-
+{% load staticfiles %}
 <html lang="en">
   <head>
-    <title>Add a todo</title>
+    <title>Your list!</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static "css/todo.css" %}"/>  <!-- My own CSS file-->
+    <link rel="stylesheet" href="{% static 'css/todo.css' %}">  <!-- My own CSS file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- Jquery libraby -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap Javascript libraby -->
 
@@ -36,20 +35,36 @@
     </script>
 
   </head>
-  <body class="body" onload="startTime()">
+  <<body class="body" onload="startTime()">
 
     <div class="content">
-      <div class="menu">
-        <div class="nav-menu">
-          <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container containerMenu">
-              <a href="{% url 'todo_page' %}" target="_parent"><button type="button" class="btn btn-default navbar-btn navbar-btn1">To do list</button></a>
-              <a href="{% url 'weather' %}" target="_parent"><button type="button" class="btn btn-default navbar-btn navbar-btn2">Weather</button></a>
-              <a href="{% url 'about' %}" target="_parent"><button type="button" class="btn btn-default navbar-btn navbar-btn3">About</button></a>
+
+      <div class="nav-menu">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
             </div>
-            <div class="welcomeName">Welcome: admin</div>
-          </nav>
-        </div>
+
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'todo_page' %}">To do list</a></li>
+                <li><a href="{% url 'weather' %}">Weather</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+              </ul>
+              <div class="navbar-header navbar-right">
+                <p class="navbar-text">Welcome: {{ request.user.username }}</p>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
 
       <div class="container status" id="status">
@@ -58,34 +73,22 @@
         <div class="status-time" id="time">
         </div>
         <div class="status-stats" id="stats">
-
-        </div>
-      </div>
-
-      <div class="todolist">
-        <div class="inputDiv">
-          <h2>Your list</h2>
-          <!--<input type="text" id="myInput" placeholder="Enter task...">-->
-          {% if user.is_authenticated %}
-            <span onclick="newElement()" class="addBtn">Add</span>
-          {% endif %}
         </div>
 
-      <!--  <ul id="myUL">
-        </ul>
-
-        <script src="{% static 'js/todo.js' %}"></script>-->
       </div>
 
-      {% for post in posts %}
-          <div class="todos">
-              <div class="date">
-                  {{ post.published_date }}
-              </div>
-              <!--<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>-->
-              <p>{{ post.text|linebreaksbr }}</p>
+      <div class="addbutton">
+        <a class="btn btn-default addbutton" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
+      </div>
+
+      <div class="containertodos">
+        <div class="row">
+          <div class="col-md-offset-5 col-md-3">
+            {% block content %}
+            {% endblock %}
           </div>
-      {% endfor %}
-  </div>
+        </div>
+
+    </div>
   </body>
 </html>
